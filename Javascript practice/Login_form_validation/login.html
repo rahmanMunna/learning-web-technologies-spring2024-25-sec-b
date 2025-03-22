@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<body>
+    <main>
+        <fieldset>
+
+            <table>
+                <h1>Login form</h1>
+                <legend>Login
+                    <form onsubmit="return checkValidation()" action="home.html">
+                        <tbody>
+                            <tr>
+                                <td>Password : </td>
+                                <td><input type="password" placeholder="enter your password" name="" id="password"></td>
+                            </tr>
+                            <tr>
+                                <td>User name : </td>
+                                <td><input type="text" placeholder="enter your User name" name="" id="username"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <!-- <a href="/home.html"> <input type="submit" value="Login"></a> -->
+                                    <input type="submit" value="Login">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <p id="errorMessage"></p>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    <input type="checkbox" name="" id="">Remember me
+                                </td>
+                                <td>
+                                    <a href="">forget Password
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </form>
+
+                </legend>
+
+            </table>
+
+        </fieldset>
+    </main>
+
+    <script>
+        let checkValidation = () => {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let errorMessage = document.getElementById('errorMessage');
+
+            if (username == "" && password == "") {
+                errorMessage.innerHTML = 'PLease enter both user name and password'
+                errorMessage.style.color = 'red';
+                return false;
+            }
+            else {
+                if (username == password) {
+                    alert('Login successful');
+                    return true;
+                }
+                else {
+                    errorMessage.innerHTML = 'Username and password does not matched'
+                    errorMessage.style.color = 'red'
+                    return false;
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
