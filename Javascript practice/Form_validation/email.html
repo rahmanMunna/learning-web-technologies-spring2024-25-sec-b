@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+
+<body>
+    <main>
+        <table>
+            <form action="" onsubmit="return handleSubmit()">
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="email" id="email" placeholder="enter your email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p id="errorMessage"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Submit">
+                        </td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+    </main>
+    <script>
+
+        const handleSubmit = () => {
+            let email = document.getElementById('email').value;
+            
+            let errorMessage = document.getElementById('errorMessage');
+            errorMessage.style.color = 'red'
+            if(email == ""){
+                errorMessage.innerHTML = "please type something";
+                return false;
+            }
+            else if(!email.includes('@')){
+                errorMessage.innerHTML = 'Must be @'
+                return false;
+            }
+            else if(email.includes('@')){
+                let emailContain = email.split('@');
+                
+                if(emailContain[1] != 'gmail.com'){
+                    errorMessage.innerHTML = 'Must be a valid email address'
+                    return false;
+                }
+            }
+            alert('Successful')
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>
