@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender</title>
+</head>
+
+<body>
+    <main>
+        <form action="" onsubmit="return handleSubmit()">
+            <fieldset>
+                <legend>Gender</legend>
+                <form action="">
+                    <input type="radio" name="gender" id="" value="male">male
+                    <input type="radio" name="gender" id="" value="female">female
+                    <input type="radio" name="gender" id="" value="others">others
+
+            </fieldset>
+            <p id="errorMessage"></p>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <script>
+        const handleSubmit = () => {
+            let radios = document.getElementsByName("gender");
+            let errorMessage = document.getElementById('errorMessage');
+            errorMessage.style.color = 'red';
+            let isSelected = false;
+
+            for(let radio  of radios){
+                if(radio.checked){
+                    isSelected = true;
+                    break;
+                }
+            }
+            if(!isSelected){
+                errorMessage.innerHTML = 'Please select one option'
+                return false;
+            }
+            alert('Successful')
+            return true;
+        }
+    </script>
+</body>
+
+</html>
