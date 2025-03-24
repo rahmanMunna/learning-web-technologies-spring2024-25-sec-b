@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree</title>
+</head>
+
+<body>
+    <main>
+        <form action="" onsubmit="return handleSubmit()">
+            <fieldset>
+                <legend>Degree</legend>
+                <input type="checkbox" name="degrees" id="" value="SSC">SSC
+                <input type="checkbox" name="degrees" id="" value="HSC">HSC
+                <input type="checkbox" name="degrees" id="" value="BSC">BSC
+
+            </fieldset>
+            <p id="errorMessage"></p>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <script>
+        const handleSubmit = () => {
+            let degrees = document.getElementsByName('degrees');
+            let errorMessage = document.getElementById('errorMessage');
+            errorMessage.style.color = 'red'
+            let isChecked = false;
+
+            for(let degree of degrees){
+                if(degree.checked){
+                    isChecked = true;
+                    break;
+                }
+            }
+           
+            if (!isChecked) {
+                errorMessage.innerHTML = 'Please Select an options'
+                return false;
+            }
+            errorMessage.innerHTML = ""
+            alert('Successful')
+            return true;
+        }
+    </script>
+</body>
+
+</html>
