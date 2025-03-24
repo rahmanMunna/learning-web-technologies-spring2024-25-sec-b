@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOB</title>
+</head>
+
+<body>
+    <main>
+        <fieldset>
+            <table>
+                <tbody>
+                    <legend>Date of Birth</legend>
+                    <form action="" onsubmit="return handleSubmit()">
+                        <tr>
+                            <td>dd</td>
+                            <td>mm</td>
+                            <td>yyyy</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" name="" id="dd"> <span>/</span>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="mm"> <span>/</span>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="yyyy">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p id="errorMessage"></p>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <input type="submit" value="Submit">
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </fieldset>
+    </main>
+
+    <script>
+        const handleSubmit = (e) => {
+
+            //console.log('clicked')
+            let date = document.getElementById('dd').value;
+            let month = document.getElementById('mm').value;
+            let year = document.getElementById('yyyy').value;
+            let errorMessage = document.getElementById("errorMessage");
+            errorMessage.style.color = 'red';
+
+            if (date == "" || month == "" || year == "") {
+                errorMessage.innerHTML = 'Please enter all the value';
+                return false;
+            }
+            if (date <= 0 || date > 31) {
+                errorMessage.innerHTML = 'Enter a validate Date';
+                return false;
+            }
+            else if (month <= 0 || month > 12) {
+                errorMessage.innerHTML = 'Enter a validate  month';
+                return false;
+            }
+            else if (year < 1900 || year > 2016) {
+                errorMessage.innerHTML = 'Enter a validate  year';
+                return false;
+            }
+            alert('successful');
+            //return true;
+
+
+        }
+    </script>
+</body>
+
+</html>
