@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture</title>
+</head>
+
+<body>
+    <main>
+        <fieldset>
+            <table>
+                <tbody>
+                    <legend>Profile Picture</legend>
+                    <form action="" onsubmit="return handleSubmit()">
+                        <tr>
+                            <td>User Id</td>
+                            <td>
+                                <input type="number" name="" id="userId">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Picture</td>
+                            <td>
+                                <input type="file" name="" id="profilePicture">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p id='errorMessage'></p>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Submit">
+                            </td>
+                            <td></td>
+                        </tr>
+                    </form>
+                </tbody>
+
+            </table>
+        </fieldset>
+    </main>
+    <script>
+        const handleSubmit = () => {
+            let userId = document.getElementById('userId').value;
+            let profilePicture = document.getElementById('profilePicture')
+            let errorMessage = document.getElementById('errorMessage');
+            errorMessage.style.color = 'red';
+
+            if (userId == "") {
+                errorMessage.innerHTML = 'Please Enter User id'
+                return false;
+            }
+            else if (userId <= 0) {
+                errorMessage.innerHTML = 'User id must be a positive number';
+                return false;
+            }
+            else if (profilePicture.files.length == 0) {
+                errorMessage.innerHTML = 'Select a picture';
+                return false;
+            }
+            alert('Successfully uploaded')
+            return true;
+
+        }
+    </script>
+</body>
+
+</html>
